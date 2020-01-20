@@ -1,23 +1,46 @@
+import org.apache.logging.log4j.*;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Password {
+    File file = new File("ErrorFile.txt");
+
+        Logger PWL = LogManager.getLogger(Password.class);
     public boolean passwordIsValid(String password) {
 try {
+
+    if(file.createNewFile())
+    {
+        System.out.println("file already exists");
+    }
     boolean hasUpperCase = false;
     boolean hasLowerCase = false;
     boolean hasDigit = false;
     boolean hasSpecialCharacter = false;
     int count = 0;
 
-    if (password.length() == 0) {
+    if (password.length() > 0) {
 
-        System.out.println("password should exist");
-        return false;
-
+        count++;
 
     }
-    if (password.length() < 8 && password.length() > 0) {
-        System.out.println("password should be longer than than 8 characters");
+    else {
+        PWL.error("password should exist");
+        return false;
+
+    }
+    if (password.length() >= 8 && password.length() > 0) {
+        count++;
+
+    }
+    else{
+        PWL.error("password should be longer than than 8 characters");
         return false;
     }
+
+
     for (int i = 0; i < password.length(); i++) {
         if (Character.isLowerCase(password.charAt(i))) {
             hasLowerCase = true;
@@ -59,22 +82,27 @@ try {
 
 
     if (!hasUpperCase) {
-        System.out.println("password should have at least one uppercase letter");
+        //System.out.println("password should have at least one uppercase letter");
+        PWL.error("password should have at least one uppercase letter");
+        Files.write(Paths.get("ErrorFile.txt"),"1234567890".getBytes());
 
 
     }
     if (!hasLowerCase) {
-        System.out.println("password should have at least one lowercase letter");
+        //System.out.println("password should have at least one lowercase letter");
+        PWL.error("password should have at least one lowercase letter");
 
 
     }
     if (!hasDigit) {
-        System.out.println("password should at least have one digit");
+        //System.out.println("password should at least have one digit");
+        PWL.error("password should at least have one digit");
 
 
     }
     if (!hasSpecialCharacter) {
-        System.out.println("password should have at least one special character");
+        //System.out.println("password should have at least one special character");
+        PWL.error("password should have at least one special character");
 
 
     }
