@@ -1,8 +1,0 @@
-2020-40-20 13:40:22.897 [main] ERROR Password - password should be longer than than 8 characters
-2020-41-20 13:41:58.983 [main] ERROR Password - password should be longer than than 8 characters
-2020-42-20 13:42:35.671 [main] ERROR Password - password should be longer than than 8 characters
-2020-02-20 14:02:36.295 [main] ERROR Password - password should be longer than than 8 characters
-2020-02-20 14:02:50.791 [main] ERROR Password - password should be longer than than 8 characters
-2020-08-20 14:08:23.762 [main] ERROR Password - password should exist
-2020-09-20 14:09:24.757 [main] ERROR Password - password should at least have one digit
-2020-09-20 14:09:24.759 [main] ERROR Password - password should have at least one special character
